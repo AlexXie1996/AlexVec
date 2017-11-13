@@ -14,7 +14,7 @@ struct _funnyvec {
 	BYTE* _ptr;
 	size_t _head;
 	size_t _tail;
-	bool empty;
+	int empty;
 };
 
 #define funnyvec_init(vec, T)																	\
@@ -30,7 +30,7 @@ struct _funnyvec {
 																								\
 	vec._head = 0;																				\
 	vec._tail = 0;																				\
-	vec.empty = true;																			\
+	vec.empty = 1;																			\
 }
 
 #define funnyvec_push_back(vec, elem)															\
@@ -45,7 +45,7 @@ struct _funnyvec {
 	}																							\
 																								\
 	if (vec.empty) {																			\
-		vec.empty = false;																		\
+		vec.empty = 0;																		\
 	}																							\
 	else if (vec._head == vec._tail) {															\
 		vec._ptr = (BYTE*)realloc((void*)vec._ptr,												\
@@ -85,7 +85,7 @@ struct _funnyvec {
 		(const void*)((BYTE*)vec._ptr + (vec._tail*vec._elem_size)),							\
 		vec._elem_size * sizeof(BYTE));															\
 	if (vec._tail == vec._head) {																\
-		vec.empty = true;																		\
+		vec.empty = 1;																		\
 	}																							\
 }
 
@@ -100,7 +100,7 @@ struct _funnyvec {
 		exit(1);																				\
 	}																							\
 	if (vec.empty) {																			\
-		vec.empty = false;																		\
+		vec.empty = 0;																		\
 	}																							\
 	else if (vec._head == vec._tail) {															\
 		vec._ptr = (BYTE*)realloc((void*)vec._ptr,												\
@@ -139,7 +139,7 @@ struct _funnyvec {
 		vec._elem_size * sizeof(BYTE));															\
 	vec._head = (vec._head + 1) % vec._maxsize;													\
 	if (vec._tail == vec._head) {																\
-		vec.empty = true;																		\
+		vec.empty = 1;																		\
 	}																							\
 }
 
@@ -189,7 +189,7 @@ struct _funnyvec {
 	}																							\
 	vec._head = 0;																				\
 	vec._tail = 0;																				\
-	vec.empty = true;																			\
+	vec.empty = 1;																			\
 }
 
 size_t funnyvec_size(funnyvec vec) {
