@@ -29,15 +29,15 @@
 - 用结构体作为alexvec的类型
 - 当最大存储空间不够时，采取扩大为原来存储空间**两倍**的策略
 - 实现以下功能
-      + init() 初始化
-      + push_back() 入栈
-      + pop_back() 出栈
-      + push_front() 在开头插入一个元素
-      + pop_front() 出队
-      + get_elem() 按索引取出元素
-      + size() 取出元素个数
-      + maxsize() 取出vec的容量
-      + destroy() 销毁
+    + init() 初始化
+    + push_back() 入栈
+    + pop_back() 出栈
+    + push_front() 在开头插入一个元素
+    + pop_front() 出队
+    + get_elem() 按索引取出元素
+    + size() 取出元素个数
+    + maxsize() 取出vec的容量
+    + destroy() 销毁
       
  ### 使用
  
